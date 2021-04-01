@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from loguru import logger
 from configparser import ConfigParser
 from os import environ
-
+from pydolphin import dolphin
 
 logger.add(
     sys.stdout,
@@ -31,3 +31,4 @@ port = int(get_var('port', 8869))
 
 
 app = FastAPI()
+dolphin.swim()
