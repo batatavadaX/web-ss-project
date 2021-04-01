@@ -25,10 +25,5 @@ def get_var(name, default=None):
     except AttributeError:
         return None
 
-
-host = get_var('host', 'localhost')
-port = int(get_var('port', 8869))
-
-
 app = FastAPI()
 dolphin.swim()
