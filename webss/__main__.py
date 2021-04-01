@@ -5,7 +5,9 @@ from fastapi.responses import FileResponse
 from temp import tempfile
 import uvicorn
 
-from .import app, host, port
+from .import app
+
+port = int(os.environ.get('PORT', 6969))
 
 browser = None
 is_browser_started = False
@@ -56,6 +58,6 @@ async def endpoint(site: str):
 
 if __name__ == "__main__":
     try:
-        uvicorn.run(app=app, host=host, port=port)
+        uvicorn.run(app=app, host='0.0.0.0', port=port)
     except (KeyboardInterrupt, RuntimeError, RuntimeWarning):
         sys.exit(0)
